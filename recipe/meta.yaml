@@ -1,10 +1,10 @@
 {% set provider= "Kubernetes" %}
-{% set version = "1.0.1" %}
+{% set version = "1.1.0" %}
 
 {% set name = "terraform-provider-" + provider.lower() %}
 {% set x4_plugin = name + '_v' + version + "_x4" %}
 
-{% set sha256 = "39de9f7602f8d2e63dc8a47f29ad0a916ae6e92db10503a5f8e74ff4420cc4f3" %}
+{% set sha256 = "c26bdf5b56452c6760dbe81e933708fa790ca7d54d491d5c825b5524f5360e9f" %}
 {% set sha256_win32 = "b2b0ea3bdc86080f7b05c5b832dc34ec08565b7d89b47e0604ae115dd01bdcd7" %}
 {% set sha256_win64 = "6648f58e7b23dcbc5822ad2b31a9836efc3e3c383d2e0944fb7fbe6ba05470f5" %}
 
