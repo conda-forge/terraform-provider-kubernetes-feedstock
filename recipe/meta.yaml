@@ -26,7 +26,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('go') }}
+    - {{ compiler('go') }}  # [not win]
     - make  # [not win]
   run:
     - terraform >=0.10
