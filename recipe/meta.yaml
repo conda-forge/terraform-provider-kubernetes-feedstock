@@ -1,10 +1,10 @@
 {% set provider = "Kubernetes" %}
-{% set version = "1.1.0" %}
+{% set version = "1.2.0" %}
 
 {% set name = "terraform-provider-" + provider.lower() %}
 {% set x4_plugin = name + '_v' + version + "_x4" %}
 
-{% set sha256 = "c26bdf5b56452c6760dbe81e933708fa790ca7d54d491d5c825b5524f5360e9f" %}
+{% set sha256 = "7d7f6ed867b6a68c3a60adee21109a7ea32e841622f7ba288021402d0e27f6af" %}
 {% set sha256_win64 = "d5e2df41fa1528cc00ccc7703cac7a5858b7e3c3a2282e2273836e7b03bce82b" %}
 
 package:
@@ -20,7 +20,7 @@ source:
     sha256: {{ sha256_win64 }}  # [win64]
 
 build:
-  number: 1
+  number: 0
   script:
     - XCOPY src\github.com\terraform-providers\{{ name|lower }}\{{ x4_plugin }}.exe %LIBRARY_BIN%  # [win]
 
