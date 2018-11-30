@@ -1,5 +1,5 @@
 {% set provider = "Kubernetes" %}
-{% set version = "1.3.0" %}
+{% set version = "1.4.0" %}
 
 {% set name = "terraform-provider-" + provider.lower() %}
 {% set x4_plugin = name + '_v' + version + "_x4" %}
@@ -11,10 +11,10 @@ package:
 source:
   - folder: src/github.com/terraform-providers/{{ name|lower }}
     url: https://github.com/terraform-providers/{{ name }}/archive/v{{ version }}.tar.gz  # [not win]
-    sha256: 37dbcdf8e963d5dcc6e23bfcfdd3aa462fbb8c64605aeb4c3e34284fa0063254  # [not win]
+    sha256: 0dbcfbccc9985bc4ea30f29c3774e4dacafc6b105609de0a630d9a87952efdb1  # [not win]
 
     url: https://releases.hashicorp.com/{{ name }}/{{ version }}/{{ name }}_{{ version }}_windows_amd64.zip  # [win64]
-    sha256: 6093835a5afd4296f6eda93b23838a738b9ef3382e94ef39a87c4adceaf7d035  # [win64]
+    sha256: c9e667f36115769a7d54d5710c1b382bee6059981af11b26b2039175f656ad65  # [win64]
 
 build:
   number: 1000
