@@ -22,7 +22,7 @@ build:
   script:
     - pushd {{ pkg_src }}
     - go build -v -o $GOBIN/{{ x4_plugin }} .  # [unix]
-    - go build -v -o %GOBIN%{{ x4_plugin }} .  # [win]
+    - go build -v -o %GOBIN%\{{ x4_plugin }} .  # [win]
 
 requirements:
   build:
