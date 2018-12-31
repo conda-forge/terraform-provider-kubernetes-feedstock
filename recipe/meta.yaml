@@ -32,6 +32,10 @@ requirements:
     - terraform >=0.11.11 # [win]
 
 test:
+  requires:         # [win]
+    - m2-bash       # [win]
+    - m2-coreutils  # [win]
+
   commands:
     - bash -euf -c "echo 'provider \"{{ provider|lower }}\" { version=\"{{ version }}\" }' > init.tf"
  
