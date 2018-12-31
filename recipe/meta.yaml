@@ -33,7 +33,8 @@ requirements:
 
 test:
   commands:
-    - bash -euf -c "echo 'provider "{{ provider|lower }}" { version="{{ version }}" }' > init.tf"
+    - bash -euf -c "echo 'provider \"{{ provider|lower }}\" { version=\"{{ version }}\" }' > init.tf"
+ 
     - terraform init
     # Tests that no plugins were downloaded
     - test -f .terraform/plugins/{{ goos }}_{{ goarch }}/lock.json
