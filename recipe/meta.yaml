@@ -1,5 +1,5 @@
 {% set provider = "Kubernetes" %}
-{% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}'
+{% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}
 {% set version = "1.4.0" %}
 
 {% set name = goname.split('/')[-1] %}
