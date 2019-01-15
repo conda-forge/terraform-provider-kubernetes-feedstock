@@ -1,6 +1,6 @@
 {% set provider = "Kubernetes" %}
 {% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}
-{% set version = "1.4.0" %}
+{% set version = "1.5.0" %}
 
 {% set name = goname.split('/')[-1] %}
 {% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
@@ -14,11 +14,11 @@ package:
 source:
   - folder:  {{ pkg_src }}
     url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-    sha256: 0dbcfbccc9985bc4ea30f29c3774e4dacafc6b105609de0a630d9a87952efdb1
+    sha256: 2d3762c83f89ff2f2ca3a1cf4b2d6016a46822dddaf70d2df72effd08b87d98a
 
 
 build:
-  number: 1001
+  number: 1000
   script:
     - pushd {{ pkg_src }}
     - go build -v -o $GOBIN/{{ x4_plugin }} .  # [unix]
