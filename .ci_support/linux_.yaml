@@ -12,8 +12,3 @@ goarch:
 - amd64
 goos:
 - linux
-zip_keys:
-- - channel_sources
-  - channel_targets
-  - docker_image
-  - build_number_decrement
