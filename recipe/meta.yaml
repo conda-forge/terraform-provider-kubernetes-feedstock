@@ -18,8 +18,7 @@ source:
 build:
   number: 0
   script:
-    - go build -v -o {{ target_gobin }}{{ x4_plugin }}{{ target_goexe }} .  # [unix]
-    - go build -v -o %GOBIN%\{{ x4_plugin }}{{ target_goexe }} .  # [win]
+    - go build -v -o {{ target_gobin }}{{ x4_plugin }}{{ target_goexe }}
 
 requirements:
   build:
