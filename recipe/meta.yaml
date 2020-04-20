@@ -24,8 +24,7 @@ requirements:
   build:
     - {{ compiler('go') }} >=1.11.3
   run:
-    - terraform >=0.10  # [unix]
-    - terraform >=0.11.11  # [win]
+    - terraform >=0.12,<0.13
 
 test:
   requires:         # [win]
