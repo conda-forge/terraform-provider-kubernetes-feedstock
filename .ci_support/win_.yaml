@@ -4,7 +4,7 @@ channel_targets:
 - conda-forge main
 go_compiler:
 - go-nocgo
-goarch:
-- amd64
-goos:
-- windows
+target_gobin:
+- '%PREFIX%\bin\'
+target_goexe:
+- .exe
