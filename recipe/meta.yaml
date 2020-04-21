@@ -1,52 +1,52 @@
 {% set provider = "Kubernetes" %}
 {% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}
-{% set version = "1.9.0" %}
+{% set version = "1.11.0" %}
 
 {% set name = goname.split('/')[-1] %}
-{% set pkg_src = ('src/'+goname).replace("/",os.sep) %}
 
-{% set x4_plugin = name + '_v' + version + "_x4" + (".exe" if win else "")%}
+{% set x4_plugin = name + '_v' + version + "_x4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - folder:  {{ pkg_src }}
-    url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-    sha256: 0d2f220a6e1bbc0192d8ddb676d20640e15336489e3c800dd06227fd3f69256c
+  url: https://{{ goname }}/archive/v{{ version }}.tar.gz
+  sha256: 5788fccf523371be265d1f80b2b69783d05a97f616a35c13ea52c4ff72a21521
 
 
 build:
   number: 0
   script:
-    - pushd {{ pkg_src }}
-    - go build -v -o $GOBIN/{{ x4_plugin }} .  # [unix]
-    - go build -v -o %GOBIN%\{{ x4_plugin }} .  # [win]
+    - go build -v -o {{ target_gobin }}{{ x4_plugin }}{{ target_goexe }}
 
 requirements:
   build:
-    - {{ compiler('go') }} >=1.11.3
+    - {{ compiler('go') }} 1.13
   run:
-    - terraform >=0.10  # [unix]
-    - terraform >=0.11.11  # [win]
+    - terraform 0.12
 
 test:
-  requires:         # [win]
-    - m2-bash       # [win]
-    - m2-coreutils  # [win]
-
   commands:
-    - bash -euf -c "echo 'provider \"{{ provider|lower }}\" { version=\"{{ version }}\" }' > init.tf"
- 
+    # Create a sample init.tf loading the provider
+    - echo 'provider "{{ provider|lower }}" { version="{{ version }}" }' > init.tf  # [unix]
+    - echo provider "{{ provider|lower }}" { version="{{ version }}" } > init.tf    # [win]
+
+    # Initialize
     - terraform init
-    # Tests that no plugins were downloaded
-    - test -f .terraform/plugins/{{ goos }}_{{ goarch }}/lock.json
-    - test ! -f .terraform/plugins/{{ goos }}_{{ goarch }}/{{ x4_plugin }}
+
+    # Tests that init was successful
+    - test -f .terraform/plugins/{{ target_goos }}_{{ target_goarch }}/lock.json              # [unix]
+    - if not exist .terraform\plugins\{{ target_goos }}_{{ target_goarch }}\lock.json exit 1  # [win]
+
+    # Test that the provider was not downloaded
+    - test ! -f .terraform/plugins/{{ target_goos }}_{{ target_goarch }}/{{ x4_plugin }}{{ target_goexe }}        # [unix]
+    - if exist .terraform\plugins\{{ target_goos }}_{{ target_goarch }}\{{ x4_plugin }}{{ target_goexe }} exit 1  # [win]
 
 about:
   home: https://www.terraform.io
   license: MPL-2.0
+  license_file: LICENSE
   summary: The Terraform {{ provider }} provider
   doc_url: https://www.terraform.io/docs/providers/{{ provider|lower }}/index.html
   dev_url: https://github.com/terraform-providers/{{ name }}
