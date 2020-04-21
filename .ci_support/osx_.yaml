@@ -10,7 +10,11 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 macos_min_version:
 - '10.11'
+target_goarch:
+- amd64
 target_gobin:
 - ${PREFIX}/bin/
 target_goexe:
 - ''
+target_goos:
+- darwin

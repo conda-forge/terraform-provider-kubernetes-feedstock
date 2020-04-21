@@ -6,7 +6,11 @@ docker_image:
 - condaforge/linux-anvil-comp7
 go_compiler:
 - go-nocgo
+target_goarch:
+- amd64
 target_gobin:
 - ${PREFIX}/bin/
 target_goexe:
 - ''
+target_goos:
+- linux
