@@ -37,11 +37,11 @@ test:
 
     # Tests that init was successful
     - test -f .terraform/plugins/{{ target_goos }}_{{ target_goarch }}/lock.json              # [unix]
-    - if not exist .terraformplugins{{ target_goos }}_{{ target_goarch }}lock.json exit 1  # [win]
+    - if not exist .terraform\plugins\{{ target_goos }}_{{ target_goarch }}\lock.json exit 1  # [win]
 
     # Test that the provider was not downloaded
     - test ! -f .terraform/plugins/{{ target_goos }}_{{ target_goarch }}/{{ x4_plugin }}{{ target_goexe }}        # [unix]
-    - if exist .terraformplugins{{ target_goos }}_{{ target_goarch }}{{ x4_plugin }}{{ target_goexe }} exit 1  # [win]
+    - if exist .terraform\plugins\{{ target_goos }}_{{ target_goarch }}\{{ x4_plugin }}{{ target_goexe }} exit 1  # [win]
 
 about:
   home: https://www.terraform.io
