@@ -36,8 +36,8 @@ test:
  
     - terraform init
     # Tests that no plugins were downloaded
-    - test -f .terraform/plugins/{{ goos }}_{{ goarch }}/lock.json
-    - test ! -f .terraform/plugins/{{ goos }}_{{ goarch }}/{{ x4_plugin }}{{ target_goexe }}
+    - test -f .terraform/plugins/{{ target_goos }}_{{ target_goarch }}/lock.json
+    - test ! -f .terraform/plugins/{{ target_goos }}_{{ target_goarch }}/{{ x4_plugin }}{{ target_goexe }}
 
 about:
   home: https://www.terraform.io
