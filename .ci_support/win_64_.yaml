@@ -12,3 +12,5 @@ target_goexe:
 - .exe
 target_goos:
 - windows
+target_platform:
+- win-64

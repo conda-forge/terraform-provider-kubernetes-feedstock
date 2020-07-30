@@ -1,15 +1,11 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '10.11'
 channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+docker_image:
+- condaforge/linux-anvil-comp7
 go_compiler:
 - go-nocgo
-macos_machine:
-- x86_64-apple-darwin13.4.0
-macos_min_version:
-- '10.11'
 target_goarch:
 - amd64
 target_gobin:
@@ -17,4 +13,6 @@ target_gobin:
 target_goexe:
 - ''
 target_goos:
-- darwin
+- linux
+target_platform:
+- linux-64
