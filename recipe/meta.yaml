@@ -1,6 +1,6 @@
 {% set provider = "Kubernetes" %}
 {% set goname = "github.com/terraform-providers/terraform-provider-"+provider.lower() %}
-{% set version = "2.15.0" %}
+{% set version = "2.16.0" %}
 
 {% set name = goname.split('/')[-1] %}
 
@@ -13,7 +13,7 @@ package:
 
 source:
   url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-  sha256: 9723285b6d8206b6b45fa01676e8c54a66dec1bdaeb42bcbf328a856c2f925c0
+  sha256: 9322fee012300140960c418949cb9ce8e3cee6bd6df47d86d97dbf49beb6c13e
 
 build:
   number: 0
