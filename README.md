@@ -1,11 +1,11 @@
-About terraform-provider-kubernetes
-===================================
+About terraform-provider-kubernetes-feedstock
+=============================================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/terraform-provider-kubernetes-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.terraform.io
 
 Package license: MPL-2.0
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/terraform-provider-kubernetes-feedstock/blob/main/LICENSE.txt)
 
 Summary: The Terraform Kubernetes provider
 
